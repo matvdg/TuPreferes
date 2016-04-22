@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var content: UILabel!
     
     override func viewDidLoad() {
-        let qm = QuestionManager(client: HTTPClient())
+        let qm = QuestionManager(client: DefaultHTTPClient())
         qm.getNextQuestion(self)
     }
     

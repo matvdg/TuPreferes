@@ -10,9 +10,9 @@ import Foundation
 
 class QuestionManager {
     
-    let client: HTTPClient
+    let client: HttpClient
     
-    init(client: HTTPClient) {
+    init(client: HttpClient) {
         self.client = client
     }
     
@@ -22,7 +22,7 @@ class QuestionManager {
         let content = data["content"] as! String
         var choices = [Choice]()
         for choice in data["choices"] as! NSArray {
-            choices.append(Choice(content: choice["content"] as! String, contentShort: choice["content"] as! String))
+            choices.append(Choice(content: choice["content"] as! String, contentShort: choice["content_short"] as! String))
         }
         return Question(content: content, choices: choices)
     }
@@ -53,16 +53,8 @@ class QuestionManager {
         } catch {
             return nil
         }
-
-    
-    
     }
-    
-    
-    
 }
-
-
 
 protocol QuestionConsumer {
     func OnNextQuestion(question: Question?)

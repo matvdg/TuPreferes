@@ -8,15 +8,11 @@
 
 import Foundation
 
-
-class HTTPClient {
+class DefaultHTTPClient: HttpClient {
     
     func get(url: NSURL, callback: (NSData?, NSError?)->() ) {
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
-            
-            
-            
             if error != nil {
                 callback(nil, error)
                 return
@@ -33,4 +29,8 @@ class HTTPClient {
         task.resume()
     }
     
+}
+
+protocol HttpClient {
+    func get(url: NSURL, callback: (NSData?, NSError?)->() )
 }

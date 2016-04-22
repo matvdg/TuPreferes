@@ -10,7 +10,6 @@
 		F60BA3011CC9993B006BB892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA3001CC9993B006BB892 /* AppDelegate.swift */; };
 		F60BA3081CC9993B006BB892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F60BA3071CC9993B006BB892 /* Assets.xcassets */; };
 		F60BA30B1CC9993B006BB892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F60BA3091CC9993B006BB892 /* LaunchScreen.storyboard */; };
-		F60BA3161CC9993B006BB892 /* TuPreferesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA3151CC9993B006BB892 /* TuPreferesTests.swift */; };
 		F60BA3211CC99952006BB892 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA3201CC99952006BB892 /* Question.swift */; };
 		F60BA3231CC99956006BB892 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA3221CC99956006BB892 /* HTTPClient.swift */; };
 		F60BA3251CC9996A006BB892 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA3241CC9996A006BB892 /* ViewController.swift */; };
@@ -36,7 +35,6 @@
 		F60BA30A1CC9993B006BB892 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F60BA30C1CC9993B006BB892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F60BA3111CC9993B006BB892 /* TuPreferesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuPreferesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F60BA3151CC9993B006BB892 /* TuPreferesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuPreferesTests.swift; sourceTree = "<group>"; };
 		F60BA3171CC9993B006BB892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F60BA3201CC99952006BB892 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F60BA3221CC99956006BB892 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -64,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0393E7511CCB7C0200490F37 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				F60BA32A1CC99A4B006BB892 /* QuestionManagerTest.swift */,
+			);
+			name = Question;
+			sourceTree = "<group>";
+		};
 		F60BA2F41CC9993A006BB892 = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +106,8 @@
 		F60BA3141CC9993B006BB892 /* TuPreferesTests */ = {
 			isa = PBXGroup;
 			children = (
-				F60BA3151CC9993B006BB892 /* TuPreferesTests.swift */,
 				F60BA3171CC9993B006BB892 /* Info.plist */,
-				F60BA32A1CC99A4B006BB892 /* QuestionManagerTest.swift */,
+				0393E7511CCB7C0200490F37 /* Question */,
 			);
 			path = TuPreferesTests;
 			sourceTree = "<group>";
@@ -237,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F60BA3161CC9993B006BB892 /* TuPreferesTests.swift in Sources */,
 				F60BA32B1CC99A4B006BB892 /* QuestionManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +416,7 @@
 				F60BA31C1CC9993B006BB892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F60BA31D1CC9993B006BB892 /* Build configuration list for PBXNativeTarget "TuPreferesTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +425,7 @@
 				F60BA31F1CC9993B006BB892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

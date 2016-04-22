@@ -27,7 +27,7 @@ class QuestionManager {
         return Question(content: content, choices: choices)
     }
     
-    func getNextQuestion(questionConsumer: QuestionConsumer) {
+    func getNextQuestion(questionConsumer: QuestionManagerDelegate) {
         self.client.get(self.url!, callback: { (data, error) in
             if let json = data {
                 questionConsumer.OnNextQuestion(self.getQuestionFromJSON(json))
@@ -56,6 +56,6 @@ class QuestionManager {
     }
 }
 
-protocol QuestionConsumer {
+protocol QuestionManagerDelegate {
     func OnNextQuestion(question: Question?)
 }

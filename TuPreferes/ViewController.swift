@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QuestionConsumer {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QuestionManagerDelegate {
     
     var question: Question?
 

@@ -8,41 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QuestionManagerDelegate {
+class ViewController: UIViewController, QuestionManagerDelegate {
     
-    var question: Question?
-
-    @IBOutlet weak var choicesTable: UITableView!
     @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var firstChoice: UIButton!
+    @IBOutlet weak var secondChoice: UIButton!
     
     override func viewDidLoad() {
         let qm = QuestionManager(client: DefaultHTTPClient())
         qm.getNextQuestion(self)
+        applyStyle()
     }
     
-    
-    //UITableViewDataSource methods
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let question = self.question {
-            return question.choices.count
-        } else {
-            return 0
-        }
-        
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("choice", forIndexPath: indexPath)
-        cell.textLabel!.text = self.question!.choices[indexPath.row].content
-        return cell
+    private func applyStyle() {
+        firstChoice.layer.cornerRadius = 5
+        secondChoice.layer.cornerRadius = 5
+        firstChoice.titleLabel?.adjustsFontSizeToFitWidth = true
+        secondChoice.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func OnNextQuestion(question: Question?){
-        if question != nil {
+        if let q = question {
             dispatch_async(dispatch_get_main_queue()){
-                self.question = question
-                self.content.text = self.question!.content
-                self.choicesTable.reloadData()
+                self.content.text = q.content
+                self.firstChoice.setTitle(q.choices.first!.content, forState: .Normal)
+                self.secondChoice.setTitle(q.choices.last!.content, forState: .Normal)
             }
         } else {
             let myAlert = UIAlertController(title: "Erreur", message: "Vérifier votre connexion et réessayez.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -51,11 +41,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             // show the alert
             self.presentViewController(myAlert, animated: true, completion: nil)
         }
-        
-        
     }
     
     
-
+    
 }
 

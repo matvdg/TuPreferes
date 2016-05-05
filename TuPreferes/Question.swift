@@ -7,25 +7,16 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-
-class Question {
-    let content: String
-    let choices: [Choice]
-    
-    init(content: String, choices: [Choice]){
-        self.content = content
-        self.choices = choices
-    }
+class Question: Object {
+    dynamic var content = ""
+    dynamic var firstChoice: Choice?
+    dynamic var lastChoice: Choice?
 }
 
-class Choice {
-    let content: String
-    let contentShort: String
-    
-    init(content: String, contentShort: String){
-        self.content = content
-        self.contentShort = contentShort
-    }
+class Choice: Object {
+    dynamic var content: String = ""
+    dynamic var contentShort: String = ""
 }

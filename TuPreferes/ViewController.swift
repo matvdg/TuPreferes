@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
 
-class ViewController: UIViewController, QuestionManagerDelegate {
+class ViewController: UIViewController, QuestionReaderDelegate {
     
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var firstChoice: UIButton!
     @IBOutlet weak var secondChoice: UIButton!
     
     override func viewDidLoad() {
-        let qm = QuestionManager(client: DefaultHTTPClient())
-        qm.getNextQuestion(self)
+        let realm = try! Realm()
+        let realmCache = RealmCache(realm: realm)
+        let questionCache = QuestionCache(persisterFinder: realmCache)
+        let qm = QuestionManager(client: DefaultHTTPClient(), questionGetter: questionCache)
+        
+        qm.readRemoteQuestions(questionCache)
+        
+        print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
+        qm.readNextQuestion(self)
         applyStyle()
     }
     
@@ -31,8 +39,8 @@ class ViewController: UIViewController, QuestionManagerDelegate {
         if let q = question {
             dispatch_async(dispatch_get_main_queue()){
                 self.content.text = q.content
-                self.firstChoice.setTitle(q.choices.first!.content, forState: .Normal)
-                self.secondChoice.setTitle(q.choices.last!.content, forState: .Normal)
+                self.firstChoice.setTitle(q.firstChoice!.content, forState: .Normal)
+                self.secondChoice.setTitle(q.lastChoice!.content, forState: .Normal)
             }
         } else {
             let myAlert = UIAlertController(title: "Erreur", message: "Vérifier votre connexion et réessayez.", preferredStyle: UIAlertControllerStyle.Alert)

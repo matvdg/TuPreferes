@@ -16,6 +16,15 @@
 		F60BA3271CC99970006BB892 /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA3261CC99970006BB892 /* QuestionManager.swift */; };
 		F60BA3291CC9998E006BB892 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F60BA3281CC9998E006BB892 /* Main.storyboard */; };
 		F60BA32B1CC99A4B006BB892 /* QuestionManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA32A1CC99A4B006BB892 /* QuestionManagerTest.swift */; };
+		F6E0AE101CDBD2C800DF3747 /* QuestionCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0AE0F1CDBD2C800DF3747 /* QuestionCache.swift */; };
+		F6E0AE131CDBD4BF00DF3747 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0AE111CDBD4BF00DF3747 /* Realm.framework */; };
+		F6E0AE141CDBD4BF00DF3747 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0AE111CDBD4BF00DF3747 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F6E0AE151CDBD4BF00DF3747 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0AE121CDBD4BF00DF3747 /* RealmSwift.framework */; };
+		F6E0AE161CDBD4BF00DF3747 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0AE121CDBD4BF00DF3747 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F6E0AE1A1CDBE67400DF3747 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0AE191CDBE67400DF3747 /* Cache.swift */; };
+		F6E0AE1C1CDBEB2100DF3747 /* QuestionCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0AE1B1CDBEB2100DF3747 /* QuestionCacheTest.swift */; };
+		F6E0AE1D1CDBED0900DF3747 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0AE111CDBD4BF00DF3747 /* Realm.framework */; };
+		F6E0AE1E1CDBED0C00DF3747 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0AE121CDBD4BF00DF3747 /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +36,21 @@
 			remoteInfo = TuPreferes;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6E0AE171CDBD4BF00DF3747 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F6E0AE161CDBD4BF00DF3747 /* RealmSwift.framework in Embed Frameworks */,
+				F6E0AE141CDBD4BF00DF3747 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F60BA2FD1CC9993A006BB892 /* TuPreferes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuPreferes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +66,11 @@
 		F60BA3261CC99970006BB892 /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
 		F60BA3281CC9998E006BB892 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F60BA32A1CC99A4B006BB892 /* QuestionManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManagerTest.swift; sourceTree = "<group>"; };
+		F6E0AE0F1CDBD2C800DF3747 /* QuestionCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCache.swift; sourceTree = "<group>"; };
+		F6E0AE111CDBD4BF00DF3747 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		F6E0AE121CDBD4BF00DF3747 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		F6E0AE191CDBE67400DF3747 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		F6E0AE1B1CDBEB2100DF3747 /* QuestionCacheTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCacheTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E0AE151CDBD4BF00DF3747 /* RealmSwift.framework in Frameworks */,
+				F6E0AE131CDBD4BF00DF3747 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E0AE1E1CDBED0C00DF3747 /* RealmSwift.framework in Frameworks */,
+				F6E0AE1D1CDBED0900DF3747 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				F60BA32A1CC99A4B006BB892 /* QuestionManagerTest.swift */,
+				F6E0AE1B1CDBEB2100DF3747 /* QuestionCacheTest.swift */,
 			);
 			name = Question;
 			sourceTree = "<group>";
@@ -73,6 +107,8 @@
 		F60BA2F41CC9993A006BB892 = {
 			isa = PBXGroup;
 			children = (
+				F6E0AE111CDBD4BF00DF3747 /* Realm.framework */,
+				F6E0AE121CDBD4BF00DF3747 /* RealmSwift.framework */,
 				F60BA2FF1CC9993B006BB892 /* TuPreferes */,
 				F60BA3141CC9993B006BB892 /* TuPreferesTests */,
 				F60BA2FE1CC9993A006BB892 /* Products */,
@@ -116,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				F60BA3221CC99956006BB892 /* HTTPClient.swift */,
+				F6E0AE191CDBE67400DF3747 /* Cache.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -125,6 +162,7 @@
 			children = (
 				F60BA3201CC99952006BB892 /* Question.swift */,
 				F60BA3261CC99970006BB892 /* QuestionManager.swift */,
+				F6E0AE0F1CDBD2C800DF3747 /* QuestionCache.swift */,
 			);
 			name = Question;
 			sourceTree = "<group>";
@@ -139,6 +177,7 @@
 				F60BA2F91CC9993A006BB892 /* Sources */,
 				F60BA2FA1CC9993A006BB892 /* Frameworks */,
 				F60BA2FB1CC9993A006BB892 /* Resources */,
+				F6E0AE171CDBD4BF00DF3747 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,7 +272,9 @@
 				F60BA3211CC99952006BB892 /* Question.swift in Sources */,
 				F60BA3231CC99956006BB892 /* HTTPClient.swift in Sources */,
 				F60BA3251CC9996A006BB892 /* ViewController.swift in Sources */,
+				F6E0AE1A1CDBE67400DF3747 /* Cache.swift in Sources */,
 				F60BA3271CC99970006BB892 /* QuestionManager.swift in Sources */,
+				F6E0AE101CDBD2C800DF3747 /* QuestionCache.swift in Sources */,
 				F60BA3011CC9993B006BB892 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E0AE1C1CDBEB2100DF3747 /* QuestionCacheTest.swift in Sources */,
 				F60BA32B1CC99A4B006BB892 /* QuestionManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +397,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TuPreferes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PrepApp.TuPreferes;
@@ -366,6 +412,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TuPreferes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PrepApp.TuPreferes;
@@ -377,6 +427,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TuPreferesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PrepApp.TuPreferesTests;
@@ -389,6 +443,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TuPreferesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PrepApp.TuPreferesTests;

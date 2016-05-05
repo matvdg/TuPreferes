@@ -87,7 +87,7 @@ class MockHttpClient: HttpClient {
 
 class MockViewController: QuestionManagerDelegate {
     var lastQuestion: Question? = nil
-    func OnNextQuestion(question: Question?) {
+    func questionIsAvailable(question: Question?) {
         lastQuestion = question
     }
 }

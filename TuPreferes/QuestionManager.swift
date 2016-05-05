@@ -27,13 +27,13 @@ class QuestionManager {
         return Question(content: content, choices: choices)
     }
     
-    func getNextQuestion(questionConsumer: QuestionManagerDelegate) {
+    func getNextQuestion(delegate: QuestionManagerDelegate) {
         self.client.get(self.url!, callback: { (data, error) in
             if let json = data {
-                questionConsumer.OnNextQuestion(self.getQuestionFromJSON(json))
+                delegate.questionIsAvailable(self.getQuestionFromJSON(json))
             } else {
                 print(error)
-                questionConsumer.OnNextQuestion(nil)
+                delegate.questionIsAvailable(nil)
                 return
             }
             
@@ -57,5 +57,5 @@ class QuestionManager {
 }
 
 protocol QuestionManagerDelegate {
-    func OnNextQuestion(question: Question?)
+    func questionIsAvailable(question: Question?)
 }

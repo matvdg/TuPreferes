@@ -27,7 +27,7 @@ class ViewController: UIViewController, QuestionManagerDelegate {
         secondChoice.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
-    func OnNextQuestion(question: Question?){
+    func questionIsAvailable(question: Question?){
         if let q = question {
             dispatch_async(dispatch_get_main_queue()){
                 self.content.text = q.content

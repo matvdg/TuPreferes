@@ -7,24 +7,25 @@
 //
 
 import UIKit
-import RealmSwift
 
 class ViewController: UIViewController, QuestionReaderDelegate {
+    
+    var currentQuestion: Question?
+    var qc: QuestionCache?
+    var qm: QuestionManager?
     
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var firstChoice: UIButton!
     @IBOutlet weak var secondChoice: UIButton!
     
     override func viewDidLoad() {
-        let realm = try! Realm()
-        let realmCache = RealmCache(realm: realm)
-        let questionCache = QuestionCache(persisterFinder: realmCache)
-        let qm = QuestionManager(client: DefaultHTTPClient(), questionGetter: questionCache)
+        self.qc = Provider.getQuestionCache()
+        self.qm = Provider.getQuestionManager()
         
-        qm.readRemoteQuestions(questionCache)
+        self.qm?.readRemoteQuestions(self.qc!)
         
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-        qm.readNextQuestion(self)
+        self.qm?.readNextQuestion(self)
         applyStyle()
     }
     
@@ -36,7 +37,9 @@ class ViewController: UIViewController, QuestionReaderDelegate {
     }
     
     func questionIsAvailable(_ question: Question?){
-        if let q = question {
+        self.currentQuestion = question
+        
+        if let q = self.currentQuestion {
             DispatchQueue.main.async{
                 self.content.text = q.content
                 self.firstChoice.setTitle(q.firstChoice!.content, for: UIControlState())
@@ -51,6 +54,10 @@ class ViewController: UIViewController, QuestionReaderDelegate {
         }
     }
     
+    @IBAction func didChoose(_ sender: UIButton) {
+        let vote = self.qm!.createNewVote(q: self.currentQuestion!, chosenTitle: sender.titleLabel!.text!)
+        self.qm?.submitVoteForQuestion(q: self.currentQuestion!, v: vote)
+    }
     
     
 }

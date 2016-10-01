@@ -11,6 +11,7 @@ import RealmSwift
 
 
 class Question: Object {
+    dynamic var id = ""
     dynamic var content = ""
     dynamic var firstChoice: Choice?
     dynamic var lastChoice: Choice?
@@ -19,4 +20,5 @@ class Question: Object {
 class Choice: Object {
     dynamic var content: String = ""
     dynamic var contentShort: String = ""
+    dynamic var slug: String = ""
 }

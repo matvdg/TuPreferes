@@ -16,6 +16,8 @@
 		F60BA3271CC99970006BB892 /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA3261CC99970006BB892 /* QuestionManager.swift */; };
 		F60BA3291CC9998E006BB892 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F60BA3281CC9998E006BB892 /* Main.storyboard */; };
 		F60BA32B1CC99A4B006BB892 /* QuestionManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BA32A1CC99A4B006BB892 /* QuestionManagerTest.swift */; };
+		F67370D61DA01195008C01CC /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67370D51DA01195008C01CC /* Vote.swift */; };
+		F67370D81DA014B4008C01CC /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67370D71DA014B4008C01CC /* Provider.swift */; };
 		F68911321D9FF9370011859A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68911301D9FF9370011859A /* Realm.framework */; };
 		F68911331D9FF9370011859A /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F68911301D9FF9370011859A /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F68911341D9FF9370011859A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68911311D9FF9370011859A /* RealmSwift.framework */; };
@@ -64,6 +66,8 @@
 		F60BA3261CC99970006BB892 /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
 		F60BA3281CC9998E006BB892 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F60BA32A1CC99A4B006BB892 /* QuestionManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManagerTest.swift; sourceTree = "<group>"; };
+		F67370D51DA01195008C01CC /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		F67370D71DA014B4008C01CC /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		F68911301D9FF9370011859A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		F68911311D9FF9370011859A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		F6E0AE0F1CDBD2C800DF3747 /* QuestionCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCache.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				F60BA3201CC99952006BB892 /* Question.swift */,
 				F60BA3261CC99970006BB892 /* QuestionManager.swift */,
 				F6E0AE0F1CDBD2C800DF3747 /* QuestionCache.swift */,
+				F67370D51DA01195008C01CC /* Vote.swift */,
+				F67370D71DA014B4008C01CC /* Provider.swift */,
 			);
 			name = Question;
 			sourceTree = "<group>";
@@ -271,8 +277,10 @@
 				F60BA3211CC99952006BB892 /* Question.swift in Sources */,
 				F60BA3231CC99956006BB892 /* HTTPClient.swift in Sources */,
 				F60BA3251CC9996A006BB892 /* ViewController.swift in Sources */,
+				F67370D61DA01195008C01CC /* Vote.swift in Sources */,
 				F6E0AE1A1CDBE67400DF3747 /* Cache.swift in Sources */,
 				F60BA3271CC99970006BB892 /* QuestionManager.swift in Sources */,
+				F67370D81DA014B4008C01CC /* Provider.swift in Sources */,
 				F6E0AE101CDBD2C800DF3747 /* QuestionCache.swift in Sources */,
 				F60BA3011CC9993B006BB892 /* AppDelegate.swift in Sources */,
 			);

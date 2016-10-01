@@ -18,34 +18,37 @@ class QuestionManager {
         self.questionGetter = questionGetter
     }
     
-    let url = NSURL(string: "http://api.tu-preferes.aubm.net/api/questions?published=1")
+    let url = URL(string: "http://api.tu-preferes.aubm.net/api/questions?published=1")
     
-    func createNewQuestion(data: NSDictionary) -> Question {
-        let content = data["content"] as! String
-        let question = Question()
+    func createNewQuestion(_ data: [String: Any]) -> Question {
         let choices = data["choices"] as! NSArray
+        
         let firstChoice = Choice()
+        firstChoice.content = (choices[0] as! [String: String])["content"]!
+        firstChoice.contentShort = (choices[0] as! [String: String])["content_short"]!
+        
         let lastChoice = Choice()
-        firstChoice.content = choices[0]["content"] as! String
-        firstChoice.contentShort = choices[0]["content_short"] as! String
-        lastChoice.content = choices[1]["content"] as! String
-        lastChoice.contentShort = choices[1]["content_short"] as! String
+        lastChoice.content = (choices[1] as! [String: String])["content"]!
+        lastChoice.contentShort = (choices[1] as! [String: String])["content_short"]!
+        
+        let question = Question()
         question.firstChoice = firstChoice
         question.lastChoice = lastChoice
-        question.content = content
+        question.content = data["content"] as! String
+        
         return question
     }
     
-    func readRemoteQuestions(delegate: QuestionReaderDelegate){
+    func readRemoteQuestions(_ delegate: QuestionReaderDelegate){
         self.client.get(self.url!) { (data, error) in
             guard let json = data else {
                 print(error)
                 return
             }
             do {
-                let result = try NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+                let result = try JSONSerialization.jsonObject(with: json) as! NSArray
                 for element in result {
-                    guard let data = element as? NSDictionary else {
+                    guard let data = element as? [String: Any] else {
                         continue
                     }
                     delegate.questionIsAvailable(self.createNewQuestion(data))
@@ -56,7 +59,7 @@ class QuestionManager {
         }
     }
     
-    func readNextQuestion(delegate: QuestionReaderDelegate) {
+    func readNextQuestion(_ delegate: QuestionReaderDelegate) {
         delegate.questionIsAvailable(questionGetter.getQuestion())
     }
     
@@ -64,7 +67,7 @@ class QuestionManager {
 
 
 protocol QuestionReaderDelegate {
-    func questionIsAvailable(question: Question?)
+    func questionIsAvailable(_ question: Question?)
 }
 
 protocol QuestionGetter {

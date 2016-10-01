@@ -26,7 +26,7 @@ class QuestionManagerTest: XCTestCase {
     
     func testCreateNewQuestion() {
         /* Given */
-        let dict = ["content": "What is your name?", "choices": [["content": "John Doe", "content_short": "John"], ["content": "Foo Bar", "content_short": "Foo"]]]
+        let dict = ["content": "What is your name?", "choices": [["content": "John Doe", "content_short": "John"], ["content": "Foo Bar", "content_short": "Foo"]]] as [String : Any]
         
         /* When */
         let q = questionManager!.createNewQuestion(dict)
@@ -47,7 +47,7 @@ class QuestionManagerTest: XCTestCase {
         questionManager?.readNextQuestion(viewCtrl)
         
         /* Then */
-        XCTAssertEqual(httpClient?.lastCalledURL, NSURL(string: "http://api.tu-preferes.aubm.net/api/questions?published=1"))
+        XCTAssertEqual(httpClient?.lastCalledURL, URL(string: "http://api.tu-preferes.aubm.net/api/questions?published=1"))
         XCTAssertNotNil(viewCtrl.lastQuestion)
         XCTAssertEqual(viewCtrl.lastQuestion?.content, "Tu préfères vivre 20 ans millionaire ou toute une vie pauvre ?")
     }
@@ -61,7 +61,7 @@ class QuestionManagerTest: XCTestCase {
         questionManager?.readNextQuestion(viewCtrl)
         
         /* Then */
-        XCTAssertEqual(httpClient?.lastCalledURL, NSURL(string: "http://api.tu-preferes.aubm.net/api/questions?published=1"))
+        XCTAssertEqual(httpClient?.lastCalledURL, URL(string: "http://api.tu-preferes.aubm.net/api/questions?published=1"))
         XCTAssertNil(viewCtrl.lastQuestion)
     }
     
@@ -70,7 +70,7 @@ class QuestionManagerTest: XCTestCase {
 
 class MockViewController: QuestionReaderDelegate {
     var lastQuestion: Question? = nil
-    func questionIsAvailable(question: Question?) {
+    func questionIsAvailable(_ question: Question?) {
         lastQuestion = question
     }
 }

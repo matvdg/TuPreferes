@@ -57,7 +57,7 @@ class MockCache: Persister {
     var lastPersistArg: Object?
     var persistWasCalled = false
     
-    func persist(realmObject: Object){
+    func persist(_ realmObject: Object){
         lastPersistArg = realmObject
         persistWasCalled = true
     }

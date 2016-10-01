@@ -18,23 +18,23 @@ class RealmCache: PersisterFinder {
         self.realm = realm
     }
     
-    func persist(realmObject: Object) {
-        dispatch_async(dispatch_get_main_queue()){
+    func persist(_ realmObject: Object) {
+        DispatchQueue.main.async{
             try! self.realm.write {
                 self.realm.add(realmObject)
             }
         }
     }
     
-    func find(type: Object.Type) -> Object? {
+    func find(_ type: Object.Type) -> Object? {
         return self.realm.objects(type).first
     }
 }
 
 
 protocol PersisterFinder {
-    func persist(realmObject: Object)
-    func find(type: Object.Type) -> Object?
+    func persist(_ realmObject: Object)
+    func find(_ type: Object.Type) -> Object?
 }
 
 

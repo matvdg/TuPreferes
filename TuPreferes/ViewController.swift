@@ -23,31 +23,31 @@ class ViewController: UIViewController, QuestionReaderDelegate {
         
         qm.readRemoteQuestions(questionCache)
         
-        print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
         qm.readNextQuestion(self)
         applyStyle()
     }
     
-    private func applyStyle() {
+    fileprivate func applyStyle() {
         firstChoice.layer.cornerRadius = 5
         secondChoice.layer.cornerRadius = 5
         firstChoice.titleLabel?.adjustsFontSizeToFitWidth = true
         secondChoice.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
-    func questionIsAvailable(question: Question?){
+    func questionIsAvailable(_ question: Question?){
         if let q = question {
-            dispatch_async(dispatch_get_main_queue()){
+            DispatchQueue.main.async{
                 self.content.text = q.content
-                self.firstChoice.setTitle(q.firstChoice!.content, forState: .Normal)
-                self.secondChoice.setTitle(q.lastChoice!.content, forState: .Normal)
+                self.firstChoice.setTitle(q.firstChoice!.content, for: UIControlState())
+                self.secondChoice.setTitle(q.lastChoice!.content, for: UIControlState())
             }
         } else {
-            let myAlert = UIAlertController(title: "Erreur", message: "Vérifier votre connexion et réessayez.", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Erreur", message: "Vérifier votre connexion et réessayez.", preferredStyle: UIAlertControllerStyle.alert)
             // add "OK" button
-            myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             // show the alert
-            self.presentViewController(myAlert, animated: true, completion: nil)
+            self.present(myAlert, animated: true, completion: nil)
         }
     }
     

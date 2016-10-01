@@ -17,13 +17,13 @@ class QuestionCache: QuestionReaderDelegate, QuestionGetter {
         self.persisterFinder = persisterFinder
     }
     
-    func questionIsAvailable(question: Question?) {
+    func questionIsAvailable(_ question: Question?) {
         guard let q = question else { return }
         persisterFinder.persist(q)
     }
     
     func getQuestion() -> Question? {
-        return self.persisterFinder.find(Question) as? Question
+        return self.persisterFinder.find(Question.self) as? Question
     }
     
 }
